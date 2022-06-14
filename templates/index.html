@@ -1,0 +1,79 @@
+{% extends 'base.html' %} {% block head %}
+
+<title>Search Page</title>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/style.css') }}"
+/>
+{% endblock %} {% block body %}
+<div class="content">
+  <h1 style="text-align: center">Predict Your chances for Admission</h1>
+
+  <div class="form">
+      <table><tr>
+          <tr>
+              <td>
+    <form action="/predict" method="POST">
+      <label> GRE Score (Range:260-340)</label>
+      <input 
+        type="number"
+        name="gre_score"
+        id="gre_score"
+        placeholder="GRE Score"
+      />
+    </td>
+    </tr><tr>
+        <td>
+      <label>TOEFL Score (Range:0-120) </label>
+      <input
+        type="number"
+        name="toefl_score"
+        id="toefl_score"
+        placeholder="TOEFL Score"
+      />
+        </td>
+      </tr><tr>
+          <td>
+      <label>University Rating (Range:0-10) </label>
+      <input
+        type="number"
+        name="university_rating"
+        id="university_rating"
+        placeholder="University Rating"
+      />
+          </td>
+      </tr><tr>
+          <td>
+      <label>SOP Rating (Range:0-10) </label>
+      <input type="number" name="sop" id="sop" placeholder="SOP Score" />
+          </td>
+      </tr><tr><td>
+      <label>LOR Rating (Range:0-10)</label>
+      <input type="number" name="lor" id="lor" placeholder="LOR Score" />
+      </td></tr><tr><td>
+      <label> GPA (On scale of 10)</label>
+      <input
+        type="number"
+        name="cgpa"
+        id="cgpa"
+        placeholder="CGPA"
+        step="any"
+      />
+      </td>
+      </tr><tr><td>
+      <label>Research </label>
+      <select id="research" name="research" id="research">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+    </td>
+      </tr><tr><td>
+      <input id="submitButton" type="submit" value="Predict" />
+      </td>
+    </tr>
+    </form>
+    </tr>
+    </table>
+  </div>
+</div>
+{% endblock %}
